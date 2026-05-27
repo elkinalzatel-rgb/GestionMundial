@@ -91,19 +91,19 @@ public class Main {
                     break;
 
                 case 4:
-                    mundial.searchFavorite();
+                    System.out.println("Seleccion con mejor ranking FIFA: " + mundial.searchFavorite());
                     break;
 
                 case 5:
-                    mundial.searchWeak();
+                    System.out.println("Seleccion con peor ranking FIFA: " + mundial.searchWeak());
                     break;
 
                 case 6:
-                    mundial.inOrder(mundial.getRaiz());
+                    mundial.printInOrder(mundial.getRaiz());
                     break;
 
                 case 7:
-                    mundial.preOrder(mundial.getRaiz());
+                    mundial.exportTree(mundial.getRaiz());
                     break;
 
                 case 8:
@@ -111,12 +111,12 @@ public class Main {
                     break;
 
                 case 9:
-                    mundial.levelOrder();
+                    mundial.viewTree();
                     break;
 
                 case 10:
                     System.out.println(
-                            "Diferencia total: " + mundial.printGoalDiff());
+                            "Diferencia total: " + mundial.printGoalDiff(mundial.getRaiz()));
                     break;
 
                 case 11:

@@ -103,40 +103,55 @@ public class ArbolBST {
         }
     }
 
-    public void searchFavorite() {
-        search(1);
+    public Seleccion searchFavorite() {
+        return search(1);
     }
 
-    public void searchWeak() {
-        search(totalTeams);
+    public Seleccion searchWeak() {
+        return search(totalTeams);
     }
 
-    public void printRanking() {
+    public String printGoalDiff(Nodo nodo) {
+        int[] totales = {0, 0}; // [golesAFavor, golesEnContra]
+        calculateGoalDiff(nodo, totales);
 
+        int diferencia = totales[0] - totales[1];
+
+        String resultado = "\n========== GOAL DIFFERENCE SUMMARY ==========\n" +
+                "Total Goals For: " + totales[0] + "\n" +
+                "Total Goals Against: " + totales[1] + "\n" +
+                "Total Goal Difference: " + diferencia + "\n" +
+                "==========================================\n";
+
+        System.out.print(resultado);
+        return resultado;
     }
 
-    public void export() {
+    private void calculateGoalDiff(Nodo nodo, int[] totales) {
+        if (nodo == null) {
+            return;
+        }
+
+        Seleccion seleccion = nodo.getSeleccion();
+        totales[0] += seleccion.getGolesAFavor();
+        totales[1] += seleccion.getGolesEnContra();
+
+        calculateGoalDiff(nodo.getIzquierda(), totales);
+        calculateGoalDiff(nodo.getDerecha(), totales);
     }
 
-    public String printGoalDiff() {
-        return null;
-    }
-
-    public void viewTree() {
-    }
-
-    public void preOrder(Nodo nodo) {
+    public void exportTree(Nodo nodo) {
         if (nodo == null) return;
         System.out.print(nodo.getSeleccion().toString() + " ");
-        preOrder(nodo.getIzquierda());
-        preOrder(nodo.getDerecha());
+        exportTree(nodo.getIzquierda());
+        exportTree(nodo.getDerecha());
     }
 
-    public void inOrder(Nodo nodo) {
+    public void printInOrder(Nodo nodo) {
         if (nodo == null) return;
-        inOrder(nodo.getIzquierda());
+        printInOrder(nodo.getIzquierda());
         System.out.print(nodo.getSeleccion().toString() + " ");
-        inOrder(nodo.getDerecha());
+        printInOrder(nodo.getDerecha());
     }
 
     public void postOrder(Nodo nodo) {
@@ -146,15 +161,24 @@ public class ArbolBST {
         System.out.print(nodo.getSeleccion().toString() + " ");
     }
 
-    public void levelOrder() {
+    public void viewTree() {
         if (raiz == null) return;
+
         Cola cola = new Cola();
         cola.enqueue(raiz);
+
         while (!cola.isEmpty()) {
-            Nodo actual = cola.dequeue();
-            System.out.print(actual.getSeleccion().toString() + " ");
-            if (actual.getIzquierda() != null) cola.enqueue(actual.getIzquierda());
-            if (actual.getDerecha() != null) cola.enqueue(actual.getDerecha());
+            int levelSize = cola.getSize();
+
+            for (int i = 0; i < levelSize; i++) {
+                Nodo actual = cola.dequeue();
+                System.out.print(actual.getSeleccion().getNombre() + " ");
+
+                if (actual.getIzquierda() != null) cola.enqueue(actual.getIzquierda());
+                if (actual.getDerecha() != null) cola.enqueue(actual.getDerecha());
+            }
+
+            System.out.println();
         }
     }
 
