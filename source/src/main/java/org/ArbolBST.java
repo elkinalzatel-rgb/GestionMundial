@@ -1,4 +1,4 @@
-package org;
+package main.java.org;
 
 public class ArbolBST {
     private Nodo raiz;
