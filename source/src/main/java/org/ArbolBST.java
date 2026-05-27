@@ -11,7 +11,8 @@ public class ArbolBST {
         this.totalTeams = 0;
     }
 
-    public void insert() {
+    public void insert(Nodo nodo, int ranking) {
+        if (raiz == null) raiz = nodo;
     }
 
     public void delete() {

@@ -1,7 +1,5 @@
 package main.java.org;
 
-package mundial;
-
 public class Nodo {
 
     private Seleccion seleccion;
