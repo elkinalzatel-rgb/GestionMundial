@@ -12,7 +12,6 @@ public class Nodo {
         this.derecha = null;
     }
 
-
     public Seleccion getSeleccion() {
         return seleccion;
     }
