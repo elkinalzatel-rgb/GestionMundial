@@ -1,5 +1,7 @@
 package main.java.org;
 
+import main.java.org.colas.Cola;
+
 public class ArbolBST {
     private Nodo raiz;
     private int height;
@@ -93,22 +95,59 @@ public class ArbolBST {
         }
     }
 
-    public void searchFavorite() {
+    public Seleccion searchFavorite() {
+        return search(1);
     }
 
-    public void searchWeak() {
+    public Seleccion searchWeak() {
+        return search(totalTeams);
     }
 
     public void printRanking() {
+
     }
 
     public void export() {
     }
 
     public void printGoalDiff() {
+
     }
 
     public void viewTree() {
+    }
+
+    public void preorder(Nodo nodo) {
+        if (nodo == null) return;
+        System.out.print(nodo.getSeleccion().toString() + " ");
+        preorder(nodo.getIzquierda());
+        preorder(nodo.getDerecha());
+    }
+
+    public void inOrder(Nodo nodo) {
+        if (nodo == null) return;
+        inOrder(nodo.getIzquierda());
+        System.out.print(nodo.getSeleccion().toString() + " ");
+        inOrder(nodo.getDerecha());
+    }
+
+    public void postorder(Nodo nodo) {
+        if (nodo == null) return;
+        postorder(nodo.getIzquierda());
+        postorder(nodo.getDerecha());
+        System.out.print(nodo.getSeleccion().toString() + " ");
+    }
+
+    public void levelOrder() {
+        if (raiz == null) return;
+        Cola cola = new Cola();
+        cola.enqueue(raiz);
+        while (!cola.isEmpty()) {
+            Nodo actual = cola.dequeue();
+            System.out.print(actual.getSeleccion().toString() + " ");
+            if (actual.getIzquierda() != null) cola.enqueue(actual.getIzquierda());
+            if (actual.getDerecha() != null) cola.enqueue(actual.getDerecha());
+        }
     }
 
     public Nodo getRaiz() {
