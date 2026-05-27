@@ -16,6 +16,14 @@ public class ArbolBST {
     public void insert(Seleccion seleccion) {
         raiz = insertNewNode(raiz, seleccion);
         totalTeams++;
+        height = calculateHeight(raiz);
+    }
+
+    private int calculateHeight(Nodo nodo) {
+        if (nodo == null) {
+            return 0;
+        }
+        return 1 + Math.max(calculateHeight(nodo.getIzquierda()), calculateHeight(nodo.getDerecha()));
     }
 
     private Nodo insertNewNode(Nodo nodo, Seleccion seleccion) {
@@ -95,12 +103,12 @@ public class ArbolBST {
         }
     }
 
-    public Seleccion searchFavorite() {
-        return search(1);
+    public void searchFavorite() {
+        search(1);
     }
 
-    public Seleccion searchWeak() {
-        return search(totalTeams);
+    public void searchWeak() {
+        search(totalTeams);
     }
 
     public void printRanking() {
@@ -110,18 +118,18 @@ public class ArbolBST {
     public void export() {
     }
 
-    public void printGoalDiff() {
-
+    public String printGoalDiff() {
+        return null;
     }
 
     public void viewTree() {
     }
 
-    public void preorder(Nodo nodo) {
+    public void preOrder(Nodo nodo) {
         if (nodo == null) return;
         System.out.print(nodo.getSeleccion().toString() + " ");
-        preorder(nodo.getIzquierda());
-        preorder(nodo.getDerecha());
+        preOrder(nodo.getIzquierda());
+        preOrder(nodo.getDerecha());
     }
 
     public void inOrder(Nodo nodo) {
@@ -131,10 +139,10 @@ public class ArbolBST {
         inOrder(nodo.getDerecha());
     }
 
-    public void postorder(Nodo nodo) {
+    public void postOrder(Nodo nodo) {
         if (nodo == null) return;
-        postorder(nodo.getIzquierda());
-        postorder(nodo.getDerecha());
+        postOrder(nodo.getIzquierda());
+        postOrder(nodo.getDerecha());
         System.out.print(nodo.getSeleccion().toString() + " ");
     }
 
