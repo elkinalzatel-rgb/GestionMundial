@@ -103,24 +103,32 @@ public class ArbolBST {
         }
     }
 
-    public Seleccion searchFavorite() {
-        return search(1);
+    public Seleccion searchWeak(Nodo nodo) {
+        if (nodo == null) return null;
+        while (nodo.getDerecha() != null) {
+            nodo = nodo.getDerecha();
+        }
+        return nodo.getSeleccion();
     }
 
-    public Seleccion searchWeak() {
-        return search(totalTeams);
+    public Seleccion searchFavorite(Nodo nodo) {
+        if (nodo == null) return null;
+        while (nodo.getIzquierda() != null) {
+            nodo = nodo.getIzquierda();
+        }
+        return nodo.getSeleccion();
     }
 
     public String printGoalDiff(Nodo nodo) {
-        int[] totales = {0, 0}; // [golesAFavor, golesEnContra]
+        int[] totales = {0, 0};
         calculateGoalDiff(nodo, totales);
 
         int diferencia = totales[0] - totales[1];
 
-        String resultado = "\n========== GOAL DIFFERENCE SUMMARY ==========\n" +
-                "Total Goals For: " + totales[0] + "\n" +
-                "Total Goals Against: " + totales[1] + "\n" +
-                "Total Goal Difference: " + diferencia + "\n" +
+        String resultado = "\n========== SUMATORIA DIFERENCIA DE GOLES ==========\n" +
+                "Total Goles A Favor: " + totales[0] + "\n" +
+                "Total Goles En Contra: " + totales[1] + "\n" +
+                "Diferencia: " + diferencia + "\n" +
                 "==========================================\n";
 
         System.out.print(resultado);

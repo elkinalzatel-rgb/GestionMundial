@@ -91,11 +91,11 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Seleccion con mejor ranking FIFA: " + mundial.searchFavorite());
+                    System.out.println("Seleccion con mejor ranking FIFA: " + mundial.searchFavorite(mundial.getRaiz()).toString());
                     break;
 
                 case 5:
-                    System.out.println("Seleccion con peor ranking FIFA: " + mundial.searchWeak());
+                    System.out.println("Seleccion con peor ranking FIFA: " + mundial.searchWeak(mundial.getRaiz()).toString());
                     break;
 
                 case 6:
