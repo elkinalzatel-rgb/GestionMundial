@@ -38,26 +38,8 @@ public class Cola {
         return valor;
     }
 
-    //peek retorna el valor del elemento del frente
-    public Nodo peek() {
-        if (isEmpty()) throw new RuntimeException("La cola esta vacia");
-        return frente.getValor();
-    }
-
     //getSize retorna el tamaño de la cola
     public int getSize() {
         return tamanio;
-    }
-
-    //nomas imprime y ya
-    public void print() {
-        NodoCola actual = frente;
-        System.out.println("Frente->Ultimo");
-        while (actual != null) {
-            System.out.println(actual.getValor() + " ");
-            if (actual.getSiguiente() == null) break;
-            actual = actual.getSiguiente();
-        }
-        System.out.println("----------");
     }
 }

@@ -34,7 +34,7 @@ public class Main {
             System.out.println("6. Reporte ordenado por rankingFIFA");
             System.out.println("7. Exportar lista de selecciones");
             System.out.println("8. Reporte PostOrder");
-            System.out.println("9. Vista BFS");
+            System.out.println("9. Vista por niveles");
             System.out.println("10. Diferencia total de goles");
             System.out.println("11. Altura del árbol");
             System.out.println("12. Total selecciones");
