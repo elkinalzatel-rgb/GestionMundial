@@ -21,52 +21,16 @@ public class Seleccion {
         return rankingFIFA;
     }
 
-    public void setRankingFIFA(int rankingFIFA) {
-        this.rankingFIFA = rankingFIFA;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
     }
 
     public int getGolesAFavor() {
         return golesAFavor;
     }
 
-    public void setGolesAFavor(int golesAFavor) {
-        this.golesAFavor = golesAFavor;
-    }
-
     public int getGolesEnContra() {
         return golesEnContra;
-    }
-
-    public void setGolesEnContra(int golesEnContra) {
-        this.golesEnContra = golesEnContra;
-    }
-
-    public int getPuntos() {
-        return puntos;
-    }
-
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
-    }
-
-    public int diferenciaGoles() {
-        return golesAFavor - golesEnContra;
     }
 
     @Override
@@ -77,6 +41,7 @@ public class Seleccion {
                 "\nGoles a favor: " + golesAFavor +
                 "\nGoles en contra: " + golesEnContra +
                 "\nPuntos: " + puntos +
-                "\n---------------------------";
+                "\n---------------------------" +
+                "\n";
     }
 }
