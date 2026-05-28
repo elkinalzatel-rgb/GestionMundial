@@ -14,10 +14,6 @@ public class NodoCola {
         return valor;
     }
 
-    public void setValor(Nodo valor) {
-        this.valor = valor;
-    }
-
     public NodoCola getSiguiente() {
         return siguiente;
     }
